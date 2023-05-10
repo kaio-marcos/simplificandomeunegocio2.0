@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz natal ITM-JUI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        #imagem{
+            width: 40%;
+
+        }
+        #de{
+            position: relative;
+            top: 237px;
+            left: 144px;
+        }
+        #para{
+            position: relative;
+            top: 232px;
+            left: 144px;
+        }
+        @font-face {
+            font-family: "Australia Custom";
+            src: url(AustraliaCustom.ttf);
+        }
+    </style>
+</head>
+<body>
+    <h5 id="de">De:</h5>
+    <h5 id="para">Para:</h5>
+    <img id="imagem" src="http://itmchannelmarketing.com/feliznatal/cartao-natal.png" alt="">
+
+    <canvas id="myCanvas" width="500" height="500"
+    style="border:1px solid #d3d3d3;">
+    Your browser does not support the canvas element.
+    </canvas>
+
+    <script>
+
+    window.onload = function() {
+        var canvas = document.getElementById("myCanvas");
+        var ctx=canvas.getContext("2d");
+
+        var cartao = new Image();
+        cartao.src = 'http://itmchannelmarketing.com/feliznatal/cartao-natal.png';
+        cartao.onload = function(){
+            ctx.drawImage(this, 0,0,500, 500);
+            ctx.font         = '20px Australia Custom';
+            ctx.fillText  ('Keyboard Cat', 0, 270);
+            ctx.fillText("De:", 140, 200);
+            ctx.fillText("Para:", 140, 220);
+            ctx.fillText("Kaio marcos moreira", 175, 200);
+            ctx.fillText("Kaio marcos moreir", 190, 220);
+            ctx.fillText("Com o tempo descobrimos", 130, 250);
+            ctx.fillText("Com o tempo descobrimos", 131, 270);
+            ctx.fillText("Com o tempo descobrimos", 132, 290);
+            ctx.fillText("Com o tempo descobrimos", 133, 310);
+            ctx.fillText("Com o tempo descobrimos", 133, 330);
+            ctx.fillText("Com o tempo descobrimos", 133, 350);
+            ctx.fillText("Com o tempo descobrimos", 133, 370);
+        };
+
+    }
+    </script>
+</body>
+</html>

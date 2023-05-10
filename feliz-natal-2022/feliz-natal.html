@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz natal ITM-JUI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        #imagem{
+            width: 40%;
+            position: relative;
+            top: -10px;
+            transition-property: top;
+            transition-duration: 2s;
+        }
+        body{
+            background-color: #191d29;
+            overflow: hidden;            
+        }
+        .row{
+            height: 100vh;
+        }
+        figure{
+            text-align: center;
+        }
+        h2{
+            position: relative;
+            top: 41%;
+            left: 29%;
+            z-index: 999;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="row" >
+        <button type="button" id="novoCartao" class="btn btn-outline-dark" style="width: 200px; height: 44px;background-color: lightblue;margin: 0 auto;position: relative;z-index: 0;top: 30px;">Criar cartão</button>
+        <figure>
+            <img id="imagem" src="papel-de-parede.gif" alt="">
+        </figure>
+    </div>
+
+
+    <div class="modal fade" id="modalNovoCartao" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Criar cartão presente</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col col-md-12">
+                    <label class="form-label">De:</label>
+                    <input type="text" id="de" class="form-control" maxlength="17" minlength="1" required>
+                </div>
+                <div class="col col-md-12">
+                    <label class="form-label">Para:</label>
+                    <input type="text" id="para" class="form-control" maxlength="16" minlength="1" required>
+                </div>
+              <div class="col col-md-12">
+                  <label class="form-label">Mensagem (linha 1):</label>
+                  <input type="text" id="linha1" class="form-control" maxlength="21" minlength="1" required>
+                  <label class="form-label">Mensagem (linha 2):</label>
+                  <input type="text" id="linha2" class="form-control" maxlength="21" minlength="1" required>
+                  <label class="form-label">Mensagem (linha 3):</label>
+                  <input type="text" id="linha3" class="form-control" maxlength="21" minlength="1" required>
+                  <label class="form-label">Mensagem (linha 4):</label>
+                  <input type="text" id="linha4" class="form-control" maxlength="21" minlength="1" required>
+                  <label class="form-label">Mensagem (linha 5):</label>
+                  <input type="text" id="linha5" class="form-control" maxlength="21" minlength="1" required>
+                  <label class="form-label">Mensagem (linha 6):</label>
+                  <input type="text" id="linha6" class="form-control" maxlength="21" minlength="1" required>
+                  <label class="form-label">Mensagem (linha 7):</label>
+                  <input type="text" id="linha7" class="form-control" maxlength="21" minlength="1" required>
+              </div>           
+            
+            </div>
+            <div class="modal-footer">
+                 <button type="submit" class="btn btn-primary" onclick="gerarCartao()">
+                    Download
+                </button>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: none;">
+        <img id="imagemCanva" src="cartao-natal.png" alt="">
+
+        <canvas id="canva" width="500" height="500"
+        style="border:1px solid #d3d3d3;">
+        Your browser does not support the canvas element.
+        </canvas>
+      </div>
+    <script>
+        $("#imagem").hover(function(){
+            $("#imagem").css("top", "100px")
+        });
+
+        $("#imagem").click(function(){
+            $("#imagem").css("top", "100px")
+        });
+
+        $("#novoCartao").on("click", function(){
+            $("#modalNovoCartao").modal("show")
+        })
+
+        function gerarCartao(){
+            console.log("aqui")
+            let de = $("#de").val();
+            let para = $("#para").val();
+            if((de == null || de == "") || (para == null || para == "")){
+                alert("Selecione um 'de' e um  'para'");
+                return;
+            }
+
+            let linha1 = $("#linha1").val();
+            let linha2 = $("#linha2").val();
+            let linha3 = $("#linha3").val();
+            let linha4 = $("#linha4").val();
+            let linha5 = $("#linha5").val();
+            let linha6 = $("#linha6").val();
+            let linha7 = $("#linha7").val();
+
+            if((linha1 == null || linha1 == "") && 
+                (linha2 == null || linha2 == "") && 
+                (linha3 == null || linha3 == "") && 
+                (linha4 == null || linha4 == "") && 
+                (linha5 == null || linha5 == "") && 
+                (linha6 == null || linha6 == "") && 
+                (linha7 == null || linha7 == "")){
+                    alert("Escreva em alguma linha");
+                    return;
+            }
+
+            var canvas = document.getElementById("canva");
+            var ctx=canvas.getContext("2d");
+            var img = document.getElementById("imagemCanva");
+            ctx.drawImage(img, 0, 0, 500,500);
+            var ctx=canvas.getContext("2d");
+            ctx.font="20px Cursive";
+            ctx.fillText("De:", 140, 200);
+            ctx.fillText("Para:", 140, 220);
+            ctx.fillText(de, 175, 200);
+            ctx.fillText(para, 190, 220);
+            if(linha1 != null && linha1 != ""){
+                ctx.fillText(linha1, 130, 250);
+            }
+            if(linha2 != null && linha2 != ""){
+                ctx.fillText(linha2, 131, 270);
+            }
+            if(linha3 != null && linha3 != ""){
+                ctx.fillText(linha3, 132, 290);
+            }
+            if(linha4 != null && linha4 != ""){
+                ctx.fillText(linha4, 133, 310);
+            }
+            if(linha5 != null && linha5 != ""){
+                ctx.fillText(linha5, 133, 330);
+            }
+            if(linha6 != null && linha6 != ""){
+                ctx.fillText(linha6, 133, 350);
+            }
+            if(linha7 != null && linha7 != ""){
+                ctx.fillText(linha7, 133, 370);
+            }
+            let aimg = document.createElement('a');
+            aimg.download = 'cartao-presente.png';
+            aimg.href = document.getElementById('canva').toDataURL('image/png')
+            aimg.click();
+        }
+    </script>
+</body>
+</html>
