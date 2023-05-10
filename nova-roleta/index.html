@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=.67, minimum-scale=.67, maximum-scale=.67, user-scalable=0">
+<style>
+  #pedaco1{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    shape-outside: circle(62.99% at 0.25% 250px);
+    clip-path: circle(62.99% at 0.40% 250px);
+    background: linear-gradient(to right, #4c6c81, #083263);
+    left: 250px;
+    bottom: 0px;
+  }  
+  
+  #pedaco2{
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    shape-outside: circle(74.00% at 47.85% 127px);
+    clip-path: circle(73.60% at 41.6% 145px);
+    background: linear-gradient(to left, #fff200, #ada71b);
+  }
+
+  #pedaco3{
+    height: 0;
+    position: absolute;
+    shape-outside: circle(74.00% at 47.85% 127px);
+    clip-path: circle(86.41% at 42.35% 165px);
+    rotate: 301.5deg;
+    border-top: 153px solid transparent;
+    border-bottom: 65px solid transparent;
+    border-right: 249px solid #14477b;
+    top: 12px;
+    right: 98px;
+  }
+  #pedaco4{
+    height: 0;
+    position: absolute;
+    shape-outside: circle(74.00% at 47.85% 127px);
+    clip-path: circle(96.94% at 21.58% 147px);
+    rotate: 433deg;
+    border-top: 169px solid transparent;
+    border-bottom: 99px solid transparent;
+    border-right: 322px solid #cfd222;
+    top: 260px;
+    right: 8.5px;
+    width: 0;
+  }
+
+  #pedaco5{
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    shape-outside: circle(99.2% at 99.05% 249px);
+    clip-path: circle(100% at 99.6% 251px);
+    background: linear-gradient(to left, #26679f, #083263);
+  }
+
+  #pedaco6{
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    shape-outside: circle(99.2% at 99.85% 0px);
+    clip-path: circle(99.8% at 100% 0px);
+    background: linear-gradient(to right, #fff200, #ada71b);;
+    top: 50%;
+  }
+  #pedaco7{
+    height: 0;
+    position: absolute;
+    rotate: 0deg;
+    border-top: 200px solid transparent;
+    border-bottom: 99px solid transparent;
+    border-right: 208px solid #14477b;
+    top: 0px;
+    right: 0px;
+    width: 0;
+  }
+  #pedaco8{
+    height: 0;
+    position: absolute;
+    rotate: 0deg;
+    border-top: 87.4px solid transparent;
+    border-bottom: 199px solid transparent;
+    border-right: 199px solid #cfd222;
+    top: -36px;
+    right: 0px;
+    width: 0;
+  }
+  #btnPlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: #fff200;
+    position: fixed;
+    z-index: 9999;
+    top: 235px;
+    border-radius: 49px;
+    box-shadow: 0px 0px 40px #1a5dad;
+
+    animation-name: efeitoBolha;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+  .btnPlayAux{
+    box-shadow: 0px 0px 40px #1a5dad !important;
+  }
+  .btnPlayAux:hover{
+    box-shadow: 0px 0px 40px #fff !important;
+  }
+
+  #img1{
+    width: 90%;
+    height: 90%;
+    border-radius: 35%;
+    transition: 0.3s;
+  }
+
+  #box{
+    box-shadow: rgb(120 190 255) 0px 0px 14px;
+    rotate: 22deg;
+  }
+
+  #moldura{
+    position: fixed;
+    height: 535px;
+    width: 535px;
+    background: linear-gradient(to bottom, #fff200, #163e69, #000000c9);
+    border-radius: 273px;
+    top: 12px;
+  }
+
+  .luz{
+    position: absolute;
+    border-style: solid;
+    border-width: 6px;
+    border-radius: 8px;
+  }
+  #seta-p1{
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(to bottom, #0d3b6e, #fff );
+    position: absolute;
+    z-index: 9;
+  }
+  #seta-p2{
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid #7f97b2;
+    rotate: 270deg;
+    position: absolute;
+  }
+
+  @keyframes efeitoBolha {
+    0%   {width: 100px;height: 100px;border-radius: 49px;top: 235px;}
+    50% {width: 110px;height: 110px;border-radius: 60px;top: 230px;}
+    100%   {width: 100px;height: 100px;border-radius: 49px;top: 235px;}
+
+  }
+
+  .spanPedaco{
+    position: absolute;
+    font-family: helvetica, arial, sans-serif;
+    color: #fffbf1;
+    text-shadow: 0 20px 25px #2e2e31;
+    font-size: 30px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<audio src="btnplay.mp3" id="som1"></audio>
+<audio src="rodando2.mp3" id="som2"></audio>
+<audio src="goodresult.mp3" id="som3"></audio>
+<audio src="bad.mp3" id="som4"></audio>
+
+<button id="btn1">Ganhar</button>
+<button id="btn2">Perder</button>
+<select id="select1">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+</select>
+
+<div style="display: flex; justify-content: center;">
+  <div id="seta-p1">
+    <span id="seta-p2"></span>
+  </div>
+  <div id="moldura">
+    <span class="luz" style="left: 37%;top: 10px;"></span>
+    <span class="luz" style="left: 60%;top: 10px;"></span>
+    <span class="luz" style="left: 79%;top: 59px;"></span>
+    <span class="luz" style="left: 91.5%;top: 137px;"></span>
+    <span class="luz" style="left: 96.7%;top: 225px;"></span>
+    <span class="luz" style="left: 95.5%;top: 333px;"></span>
+    <span class="luz" style="left: 85%;top: 432px;"></span>
+    <span class="luz" style="left: 68%;top: 499px;"></span>
+    <span class="luz" style="left: 43%;top: 518px;"></span>
+    <span class="luz" style="left: 19%;top: 465px;"></span>
+    <span class="luz" style="left: 6%;top: 380px;"></span>
+    <span class="luz" style="left: 0.5%;top: 256px;"></span>
+    <span class="luz" style="left: 4%;top: 163px;"></span>
+    <span class="luz" style="left: 15%;top: 77px;"></span>
+  </div>
+  <div id="btnPlay" class="btnPlayAux">
+    <img id="img1" src="logobb.PNG" alt="">
+  </div>
+  <div id="box" style="background:transparent;height:500px;width:500px;border-radius: 258px;position: fixed;">
+    <div id="pedaco1">
+      <span class="spanPedaco" style="left: 150px;top: 311px; rotate: 113deg;">
+        NÃO
+      </span>
+      <span class="spanPedaco" style="left: 132px;top: 298px; rotate: 113deg;">
+        FOI
+      </span>
+      <span class="spanPedaco" style="left: 78px;top: 285px; rotate: 113deg;">
+        DESTA
+      </span>
+      <span class="spanPedaco" style="left: 58px;font-size: 36px;top: 266px; rotate: 113deg;">
+        VEZ
+      </span>
+      <div id="pedaco2">
+        <div id="pedaco3">
+          <span class="spanPedaco" style="left: 164px;top: -46px; rotate: 83deg;">
+            NÃO
+          </span>
+          <span class="spanPedaco" style="left: 141px;top: -45px; rotate: 83deg;">
+            FOI
+          </span>
+          <span class="spanPedaco" style="left: 85px;top: -38px; rotate: 83deg;">
+            DESTA
+          </span>
+          <span class="spanPedaco" style="left: 64px;font-size: 36px;top: -36px; rotate: 83deg;">
+            VEZ
+          </span>
+        </div> 
+      </div> 
+      <div id="pedaco4">
+
+      </div>
+    </div>
+    <div id="pedaco5">
+      <span class="spanPedaco" style="left: 93px;top: -36px; rotate: 205deg;">
+        NÃO
+      </span>
+      <span class="spanPedaco" style="left: 115px;rotate: 204deg;bottom: 27px;">
+        FOI
+      </span>
+      <span class="spanPedaco" style="left: 104px;rotate: 204deg;bottom: 57px;">
+        DESTA
+      </span>
+      <span class="spanPedaco" style="left: 135px;font-size: 36px; rotate: 204deg;bottom: 86px;">
+        VEZ
+      </span>
+      <div id="pedaco8">
+        <span class="spanPedaco" style="left: 81px;top: -2px; rotate: -22deg;">
+          VOCÊ
+        </span>
+        <span class="spanPedaco" style="left: 68px;top: 25px; rotate: -22deg;">
+          GANHOU
+        </span>
+        <span class="spanPedaco" style="left: 130px;top: 53px; rotate: -22deg;">
+          R$
+        </span>
+        <span class="spanPedaco" style="left: 143px;font-size: 36px;top: 82px; rotate: -23deg;">
+          50
+        </span>
+      </div>
+    </div>
+    <div id="pedaco6">
+      <div id="pedaco7">
+        <span class="spanPedaco" style="left: 93px;top: -36px; rotate: 205deg;">
+          NÃO
+        </span>
+        <span class="spanPedaco" style="left: 115px;rotate: 204deg;bottom: 27px;">
+          FOI
+        </span>
+        <span class="spanPedaco" style="left: 104px;rotate: 204deg;bottom: 57px;">
+          DESTA
+        </span>
+        <span class="spanPedaco" style="left: 135px;font-size: 36px; rotate: 204deg;bottom: 86px;">
+          VEZ
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+window.onload = () => {
+  $("#btnPlay").on("click", function(){
+    alert("ok")
+  });  
+
+  const dictPosicoes = {1:'382', 2:'427', 3:'472', 4:'516', 5:'562', 6:'607', 7:'652', 8:'697'}
+  var posicoesGanhadoras = [383, 472, 563, 652]
+  var posicoesPerdedores = [428, 517, 608, 698]
+  
+  var ideg =360;
+  var pararEm = 0;
+  var luzesFinais = null;
+  function parar(){
+    setTimeout(()=>{
+      if(ideg >= pararEm){
+        alternarLuzes(true);
+        if(luzesFinais != null){
+          luzesFinais();
+        }
+        return;
+      }
+      $("#box").css("rotate", ideg+"deg");
+      parar();
+    }, 10);
+    ideg++;
+  }
+  let velocidadeModo1 = 100;  
+  let posicaoLuz = 0;
+  let luzes = null;
+  let apagarAnterior = false;
+  let timeoutAtualMd1 = [];
+
+  function modo1Veloz(){
+    velocidadeModo1 = 40;
+    modo1();
+  }
+
+  function modo1(){
+    if(luzes == null){
+      luzes = document.querySelectorAll(".luz");
+    }
+    if(posicaoLuz >= luzes.length){
+      posicaoLuz = 0;
+      apagarAnterior = false;
+    }
+    luzes[posicaoLuz].style.borderColor="white";
+    luzes[posicaoLuz].style.borderWidth="7.5px";
+    
+    if(posicaoLuz+1<luzes.length){
+      luzes[posicaoLuz+1].style.borderColor="white";
+      luzes[posicaoLuz+1].style.borderWidth="7.5px";
+    }
+
+    if(posicaoLuz > 0){
+      apagarAnterior=true;
+    }
+    if(apagarAnterior){
+      luzes[posicaoLuz-1].style.borderColor="black";
+      luzes[posicaoLuz-1].style.borderWidth="6px";
+    }
+    posicaoLuz++;
+    if(posicaoLuz==luzes.length){
+      luzes[posicaoLuz-1].style.borderColor="black";
+      luzes[posicaoLuz-1].style.borderWidth="6px";
+    }
+    timeoutAtualMd1Aux = setTimeout(modo1, velocidadeModo1);
+    if(!timeoutAtualMd1.includes(timeoutAtualMd1Aux)){
+      timeoutAtualMd1.push(timeoutAtualMd1Aux);
+    }
+  }
+
+  function pararModo1(){
+    if(timeoutAtualMd1 != null && timeoutAtualMd1.length > 0){
+      velocidadeModo1 = 100;
+      posicaoLuz = 0;
+      apagarAnterior = false;
+      $(".luz").css("borderColor", "black");
+      for(id of timeoutAtualMd1){
+        clearTimeout(id);
+      }
+    }
+  }
+
+  let luzesL1 = [];
+  let luzesL2 = [];
+  function modo2(){
+    if(luzesL1 != null && luzesL1.length > 0){
+      luzesL1 = [];
+    }
+    if(luzesL2 != null && luzesL2.length > 0){
+      luzesL2 = [];
+    }
+    luzesAux = document.querySelectorAll(".luz");
+    for(let i=0; i<luzesAux.length; i++){
+      if(i<(luzesAux.length / 2)){
+        luzesL1.push(luzesAux[i]);
+      }else{
+        luzesL2.push(luzesAux[i]);
+      }
+    }
+
+    // o primeiro de um, é o ultimo do outro
+    luzesL2.push(luzesL1.shift());
+    luzesL1.push(luzesL2.shift());
+
+    //inverte luzesL2 pra seguir o mesmo fluxo de luzesL1
+    luzesL2Aux = []
+    for(let j=luzesL2.length-1; j >= 0; j--){
+      luzesL2Aux.push(luzesL2[j]);
+    }
+    luzesL2 = luzesL2Aux;
+
+    countM2=0;
+    extensaoModo2()
+  }
+
+  let countM2=0;
+  let timeoutAtualMd2 = null;
+  function extensaoModo2(){
+    if(!(countM2<luzesL1.length)){
+      timeoutAtualMd2 = setTimeout(inversoExtensaoModo2, 100);
+      return;
+    }
+    luzesL1[countM2].style.borderColor="white";
+    luzesL2[countM2].style.borderColor="white";
+
+    luzesL1[countM2].style.borderWidth="7.5px";
+    luzesL2[countM2].style.borderWidth="7.5px";
+    if(countM2>0){
+      luzesL1[countM2-1].style.borderColor="black";
+      luzesL2[countM2-1].style.borderColor="black";
+
+      luzesL1[countM2-1].style.borderWidth="6px";
+      luzesL2[countM2-1].style.borderWidth="6px";
+    }
+    countM2++;
+    timeoutAtualMd2 = setTimeout(extensaoModo2, 100);
+  }
+  function inversoExtensaoModo2(){
+    countM2--;
+    if(!(countM2>0)){
+      timeoutAtualMd2 = setTimeout(extensaoModo2, 100);
+      return;
+    }
+    luzesL1[countM2-1].style.borderColor="white";
+    luzesL2[countM2-1].style.borderColor="white";
+
+    luzesL1[countM2-1].style.borderWidth="7.5px";
+    luzesL2[countM2-1].style.borderWidth="7.5px";
+    if(countM2>0){
+      luzesL1[countM2].style.borderColor="black";
+      luzesL2[countM2].style.borderColor="black";
+
+      luzesL1[countM2].style.borderWidth="6px";
+      luzesL2[countM2].style.borderWidth="6px";
+    }
+    timeoutAtualMd2 = setTimeout(inversoExtensaoModo2, 100);
+  }
+
+  function pararModo2(){
+    if(timeoutAtualMd2 != null){
+      $(".luz").css("borderColor", "black");
+      clearTimeout(timeoutAtualMd2);
+    }
+  }
+
+  let countM3=0;
+  let timeoutAtualMd3 = null;
+  function modo3(){
+    if(luzesL1 != null && luzesL1.length > 0){
+      luzesL1 = [];
+    }
+    if(luzesL2 != null && luzesL2.length > 0){
+      luzesL2 = [];
+    }
+    luzesAux = document.querySelectorAll(".luz");
+    for(let i=0; i<luzesAux.length; i++){
+      if(i<(luzesAux.length / 2)){
+        luzesL1.push(luzesAux[i]);
+      }else{
+        luzesL2.push(luzesAux[i]);
+      }
+    }
+
+    // o primeiro de um, é o ultimo do outro
+    luzesL2.push(luzesL1.shift());
+    luzesL1.push(luzesL2.shift());
+
+    countM3=0;
+    timeoutAtualMd3 = setTimeout(extensaoModo3, 100);
+  }
+
+  function extensaoModo3(){
+    if(!(countM3<luzesL1.length)){
+      timeoutAtualMd3 = setTimeout(inversoExtensaoModo3, 100);
+      return;
+    }
+    luzesL1[countM3].style.borderColor="white";
+    luzesL2[countM3].style.borderColor="white";
+
+    luzesL1[countM3].style.borderWidth="7.5px";
+    luzesL2[countM3].style.borderWidth="7.5px";
+    if(countM3>0){
+      luzesL1[countM3-1].style.borderColor="black";
+      luzesL2[countM3-1].style.borderColor="black";
+
+      luzesL1[countM3-1].style.borderWidth="6px";
+      luzesL2[countM3-1].style.borderWidth="6px";
+    }
+    countM3++;
+    timeoutAtualMd3 = setTimeout(extensaoModo3, 100);
+  }
+
+  function inversoExtensaoModo3(){
+    countM3--;
+    if(!(countM3>0)){
+      timeoutAtualMd3 = setTimeout(extensaoModo3, 100);
+      return;
+    }
+    luzesL1[countM3-1].style.borderColor="white";
+    luzesL2[countM3-1].style.borderColor="white";
+
+    luzesL1[countM3-1].style.borderWidth="7.5px";
+    luzesL2[countM3-1].style.borderWidth="7.5px";
+    if(countM3>0){
+      luzesL1[countM3].style.borderColor="black";
+      luzesL2[countM3].style.borderColor="black";
+
+      luzesL1[countM3].style.borderWidth="6px";
+      luzesL2[countM3].style.borderWidth="6px";
+    }
+    timeoutAtualMd3 = setTimeout(inversoExtensaoModo3, 100);
+  }
+
+  function pararModo3(){
+    if(timeoutAtualMd3 != null){
+      $(".luz").css("borderColor", "black");
+      clearTimeout(timeoutAtualMd3);
+    }
+  }
+
+  let timeoutAtualMd4 = null;
+  function modo4(){
+    if(timeoutAtualMd4 == null){
+      document.getElementById("som3").play();
+    }
+    if($(".luz").css("borderColor") == "rgb(0, 255, 0)"){
+      $(".luz").css("borderColor", "rgb(255, 255, 255)");
+    }else{
+      $(".luz").css("borderColor", "rgb(0, 255, 0)");
+    }
+    timeoutAtualMd4 = setTimeout(modo4, 150);
+  }
+  function pararModo4(){
+    if(timeoutAtualMd4 != null){
+      $(".luz").css("borderColor", "white");
+      clearTimeout(timeoutAtualMd4);
+    }
+  }
+  function modo5(){
+    document.getElementById("som4").play();
+    $(".luz").css("borderColor", "red")
+  }
+  function pararModo5(){
+    $(".luz").css("borderColor", "white");
+  }
+
+  let luzAtual = 1;
+  let timeoutAlterLuzesId = null;
+  function alternarLuzes(stop){
+    if(!stop){
+      if(luzAtual == 1){
+        pararModo3();
+        modo1();
+      }else if(luzAtual == 2){
+        pararModo1();
+        modo2();
+      }else if(luzAtual == 3){
+        pararModo2();
+        modo3();
+      }else if(luzAtual == 4){
+        pararModo3();
+        modo1Veloz();
+        luzAtual=3;
+      }
+
+      luzAtual++;
+      timeoutAlterLuzesId = setTimeout(alternarLuzes, 4000);
+    }else{
+      pararModo1();
+      pararModo2();
+      pararModo3();
+      pararModo4();
+      if(timeoutAlterLuzesId != null){
+        clearTimeout(timeoutAlterLuzesId);
+      }
+      luzAtual = 1;
+      return;
+    }
+  }
+
+  function efeitoBotao(){
+    setInterval(function(){}, )
+  }
+$(document).ready(function(){
+	var time = 100;
+	function girar(seg, tipo){
+    $("#box").animate({rotate: "360deg"}, seg, tipo, function(){
+      if(time >= 4000){
+        parar();
+        return;
+      }else{
+        $("#box").css("rotate", "0deg");
+      }
+      girar(time, "linear");
+      time+=100;
+      if(time >= 1000){
+          time+=500;
+      }
+
+    });
+  }
+  $("#btn1").click(function(){
+    if(time >= 4000 || time == 100){
+      time=100;
+      ideg =360;
+      $("#box").css("rotate", "22deg");
+      document.getElementById("som1").play();
+      setTimeout(()=>{
+        posicaoGanhadora = Math.round(Math.random() * posicoesGanhadoras.length)
+        console.log(posicoesGanhadoras[posicaoGanhadora]);
+        if(posicoesGanhadoras[posicaoGanhadora] == null){
+          //alert("Tente novamente!");
+          //return;
+          posicaoGanhadora = 0;
+        }
+        pararEm = posicoesGanhadoras[posicaoGanhadora];
+        luzesFinais = modo4;
+        girar(550, "linear")
+        document.getElementById("som2").play()
+        alternarLuzes(false);
+      }, 1500)
+    }
+  });
+  $("#btn2").click(function(){
+    if(time >= 4000 || time == 100){
+      time=100;
+      ideg =360;
+      $("#box").css("rotate", "22deg");
+      document.getElementById("som1").play();
+      setTimeout(()=>{
+        let posicaoPerdedora = Math.round(Math.random() * posicoesPerdedores.length)
+        console.log(posicoesPerdedores[posicaoPerdedora]);
+        if(posicoesPerdedores[posicaoPerdedora] == null){
+          //alert("Tente novamente!");
+          //return;
+          posicaoPerdedora = 0;
+        }
+        pararEm = posicoesPerdedores[posicaoPerdedora];
+        luzesFinais = modo5;
+        girar(550, "linear")
+        document.getElementById("som2").play()
+        alternarLuzes(false);
+      }, 1500)
+    }
+  });
+
+});
+
+
+}
+</script>
+</html>
