@@ -1,0 +1,60 @@
+
+#sCalculadora{
+    width: 262px;
+    height: 450px;
+    border: solid;
+    border-width: 1px;
+}
+
+.linha{
+    width: 100%;
+}
+
+.linha h5{
+    margin: 0;
+    font-family: arial;
+    padding: 10px;
+}
+
+.linha h3{
+    margin: 0;
+    font-family: arial;
+    margin-left: 20px;
+}
+
+#painel-resultado{
+    height: 100px;
+}
+
+#painel-resultado{
+    text-align: right;
+}
+
+button{
+    width: 60px;
+    height: 50px;
+    border-radius: 0;
+    border-width: 0px;
+    margin-top: 4px;
+}
+
+#botoes{
+    padding: 0px 5px;
+}
+
+#botoes:nth-child(1){
+    text-align: right;
+}
+
+#input-valor{
+    width: 97%;
+    border-width: 0;
+    height: 40px;
+    font-size: 20pt;
+    text-align: right;
+}
+
+#monta-resultado{
+    font-family: arial;
+    color: #0000006b;
+}

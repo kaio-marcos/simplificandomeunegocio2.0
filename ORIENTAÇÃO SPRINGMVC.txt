@@ -1,0 +1,24 @@
+injeção de dependencias -> https://www.digitalocean.com/community/tutorials/spring-dependency-injection
+
+todos as postagens sobre spring -> https://www.digitalocean.com/community/tutorials/spring-tutorial-spring-core-tutorial
+
+tutorial spring mvc com sptringtoolssuite -> https://www.digitalocean.com/community/tutorials/spring-mvc-tutorial
+
+falta ver artigos de spring mvc + hibernate
+
+
+spring, hibernate + mysql -> https://www.digitalocean.com/community/tutorials/spring-mvc-hibernate-mysql-integration-crud-example-tutorial
+
+
+Spring 4 + Hibernate 3 e Hibernate 4 -> https://www.digitalocean.com/community/tutorials/spring-hibernate-integration-example-tutorial
+
+https://docs.spring.io/spring-framework/docs/current/reference/html/overview.html#overview
+
+treinaweb
+
+
+DAO ----------------->
+https://www.treinaweb.com.br/blog/criando-uma-api-com-spring-data-jpa-e-spring-web
+https://www.devmedia.com.br/desenvolvendo-uma-aplicacao-web-com-spring-boot-e-spring-mvc/34122
+https://www.devmedia.com.br/jpa-e-spring-framework-criando-um-dao-generico/30131
+spring - spring boot - spring jpa
